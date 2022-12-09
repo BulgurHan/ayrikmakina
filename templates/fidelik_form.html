@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block bg-success"></div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <br><br>
+                                <h1 class="h4 text-gray-900 mb-4">{{title}}</h1>
+<form method="POST">
+    {% csrf_token %}
+
+    {{form.isim}}
+    {{form.yetkili}}
+    {{form.tel}}
+    {{form.mail}}
+    {{form.adres}}
+    {{form.mak_sayisi}}
+    {{form.karistirici}}
+    {{form.makine}}
+    {{form.viyoller}}
+    {% if title == 'Fidelik Ekle' %}
+    <input type="submit" value="Ekle" class="btn btn-success"/>
+    {% else %}
+    <input type="submit" value="Kaydet" class="btn btn-success"/>
+    <a href={% url 'deleteCustomer' customer_pk=customer.pk %} class="btn btn-danger"> Sil<a/>
+    {% endif %}
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock content %}
